@@ -1,0 +1,15 @@
+#一台电脑需要修改host才能体现服务注册在集群的效果
+server:
+  port: 8001
+spring:
+  application:
+    name: eureka-server #应用名
+eureka:
+  instance:
+    hostname: server1  #主机名，如果不是localhost这个可能应该在host文件修改,一台电脑需要修改host才能体现服务注册在集群的效果
+  client:
+    register-with-eureka: false #是否将注册中心自身注册  单节点不需要   true需要，false不需要
+    fetch-registry: true #是否从注册中心获取服务列表，单节点无需同步其他eureka server数据
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://server2:8002/eureka #客户端查询服务与注册服务需要的地址，多个地址逗号分割
+

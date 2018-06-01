@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: eureka-provider-security  #应用名
+eureka:
+  client:
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://cyanyunzi:123456@localhost:8001/eureka #服务端注册需要用户认证,如果没有用户名密码会报 any server异常
+  instance:
+    prefer-ip-address: true #将自己的Ip注册到EurekaServer

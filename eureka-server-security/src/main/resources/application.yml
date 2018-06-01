@@ -1,0 +1,17 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: eureka-server-security #应用名
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #是否将注册中心自身注册  单节点不需要   true需要，false不需要
+    fetch-registry: true #是否从注册中心获取服务列表，单节点无需同步其他eureka server数据
+security:
+  basic:
+    enabled: true #开启basic认证
+  user:
+    name: cyanyunzi
+    password: 123456
