@@ -1,11 +1,11 @@
 package com.linwu.eureka.consumer.controller;
 
+import com.linwu.common.model.entity.Student;
+import com.linwu.eureka.feign.FeignService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -16,19 +16,21 @@ import org.springframework.web.client.RestTemplate;
  */
 
 @RestController
-@RequestMapping("/ribbon-consumer")
+@RequestMapping("/feign-consumer")
 @Slf4j
-public class RibbonConsumerController {
+public class FeignConsumerController {
     @Autowired
-    RestTemplate restTemplate;
-    @Autowired
-    LoadBalancerClient loadBalancerClient;
+    FeignService feignService;
+    /*idea rest测试通过*/
 
     @GetMapping
     public String test(){
         log.info("-------------------------");
-        return this.restTemplate.getForObject("http://eureka-provider-ribbon",String.class);
+        return feignService.test();
     }
 
-
+    @PostMapping
+    public String test1(){
+       return  feignService.test(new Student("林雾",25));
+    }
 }

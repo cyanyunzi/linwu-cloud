@@ -14,12 +14,16 @@
 		<module>eureka-provider</module>
 		<module>eureka-consumer</module>
 		<module>eureka-consumer-ribbon</module>
+		<module>eureka-consumer-feign</module>
+		<module>eureka-consumer-ribbon-hystrix</module>
 		<module>eureka-server</module>
 		<module>eureka-server-ha</module>
 		<module>eureka-server-security</module>
 		<module>eureka-provider-security</module>
 		<module>eureka-provider-ribbon1</module>
 		<module>eureka-provider-ribbon2</module>
+		<module>eureka-provider-feign</module>
+		<module>eureka-provider-ribbon-hystrix</module>
 		<module>common</module>
 	</modules>
 
