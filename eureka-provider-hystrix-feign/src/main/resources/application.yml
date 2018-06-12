@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: eureka-provider-hystrix-feign  #应用名
+eureka:
+  client:
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://localhost:8001/eureka #客户端查询服务与注册服务需要的地址，多个地址逗号分割
+  instance:
+    prefer-ip-address: true #将自己的Ip注册到EurekaServer

@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: eureka-consumer-hystrix-feign  #应用名
+eureka:
+  client:
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://localhost:8001/eureka #客户端查询服务与注册服务需要的地址，多个地址逗号分割
+
+feign:
+  compression:
+    request:
+      mime-types: text/xml,application/xml,application/json # 配置压缩支持的MIME TYPE
+      enabled:  true  # 配置请求GZIP压缩
+      min-request-size: 2048  # 配置压缩数据大小的下限
+    response:
+      enabled:  true  # 配置响应GZIP压缩
