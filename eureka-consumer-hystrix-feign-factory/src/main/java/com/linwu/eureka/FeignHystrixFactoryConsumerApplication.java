@@ -9,7 +9,6 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient//eureka  服务方 消费方都要
 @EnableFeignClients//feign
-@EnableCircuitBreaker
 public class FeignHystrixFactoryConsumerApplication {
 
 	public static void main(String[] args) {
