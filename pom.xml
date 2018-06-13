@@ -27,6 +27,7 @@
 		<module>eureka-provider-feign</module>
 		<module>eureka-provider-hystrix-feign</module>
 		<module>eureka-provider-ribbon-hystrix</module>
+		<module>zuul-gateway</module>
 		<module>common</module>
 	</modules>
 

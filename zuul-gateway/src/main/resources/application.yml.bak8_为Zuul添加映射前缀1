@@ -1,0 +1,21 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: zuul-gateway
+eureka:
+  client:
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://localhost:8001/eureka #客户端查询服务与注册服务需要的地址，多个地址逗号分割
+  instance:
+    prefer-ip-address: true
+zuul:
+  prefix: /api
+  strip-prefix: false
+  routes:
+    microservice-provider-user: /user/**
+logging:
+  level:
+    com.netflix: DEBUG
+    
+# 访问Zuul的/api/microservice-provider-user/1路径，请求将会被转发到microservice-provider-user的/api/1，，可以查看日志打印，有助于理解。

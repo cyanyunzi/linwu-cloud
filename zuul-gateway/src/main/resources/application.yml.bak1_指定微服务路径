@@ -1,0 +1,13 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: zuul-gateway
+eureka:
+  client:
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://localhost:8001/eureka #客户端查询服务与注册服务需要的地址，多个地址逗号分割
+
+zuul:
+  routes:
+    microservice-provider-user: /eureka-consumer-feign/**  #指定微服务映射路径  http://localhost:8005/consumer-feign/feign-consumer

@@ -1,0 +1,15 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: zuul-gateway
+eureka:
+  client:
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://localhost:8001/eureka #客户端查询服务与注册服务需要的地址，多个地址逗号分割
+  instance:
+    prefer-ip-address: true
+zuul:
+  ignored-services: '*'   # 使用'*'可忽略所有微服务
+  routes:
+    eureka-consumer-feign: /consumer-feign/**

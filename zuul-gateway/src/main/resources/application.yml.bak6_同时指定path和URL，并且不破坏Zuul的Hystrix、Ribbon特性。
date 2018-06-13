@@ -1,0 +1,22 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: zuul-gateway
+eureka:
+  client:
+    service-url: #yml文件冒号后缩进，不然启动报错了
+      defaultZone:  http://localhost:8001/eureka #客户端查询服务与注册服务需要的地址，多个地址逗号分割
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    user-route:
+      path: /user/**
+      service-id: microservice-provider-user
+ribbon:
+  eureka:
+    enabled: false    # 禁用掉ribbon的eureka使用。详见：http://cloud.spring.io/spring-cloud-static/Camden.SR3/#_example_disable_eureka_use_in_ribbon
+microservice-provider-user:
+  ribbon:
+    listOfServers: localhost:8000,localhost:8001
