@@ -25,8 +25,9 @@ public class FeignConsumerController {
 
     @GetMapping
     public String test(){
-        log.info("-------------------------");
-        return feignService.test();
+        String result = feignService.test();
+        log.info("返回 result:{}",result);
+        return result;
     }
 
     @PostMapping
