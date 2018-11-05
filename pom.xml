@@ -29,6 +29,7 @@
 		<module>eureka-provider-ribbon-hystrix</module>
 		<module>zuul-gateway</module>
 		<module>common</module>
+		<module>zuul-solution-wy-biz</module>
 	</modules>
 
 	<properties>

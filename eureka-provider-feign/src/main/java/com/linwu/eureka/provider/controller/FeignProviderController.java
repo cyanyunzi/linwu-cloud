@@ -1,6 +1,8 @@
 package com.linwu.eureka.provider.controller;
 
 import com.linwu.common.model.entity.Student;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/feign-probider")
+@Api(tags = {"feign-probider"}, description = "服务方feign",hidden = true)
 public class FeignProviderController {
     @GetMapping
+    @ApiOperation(value = "消服务方feign GET")
     public String test(){
         return "feign-probider";
     }
